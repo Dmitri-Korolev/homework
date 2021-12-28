@@ -1,4 +1,3 @@
-
 const card = document.querySelector('.card');
 const frontCard = document.querySelector('.front');
 const backCard = document.querySelector('.back');
@@ -21,7 +20,7 @@ class SwapiService {
 
     async getAllPeople() {
         const res = await this.getResource(`/people/`);
-        return res.results;
+        return res;
     }
     getPerson(id) {
         return this.getResource(`/people/${id}/`)
@@ -32,8 +31,9 @@ const swapi = new SwapiService ();
 
 window.addEventListener('DOMContentLoaded', () => {
     
+swapi.getAllPeople().then(r => {
     btn.addEventListener('click', () => {
-        const rndmPerson = Math.floor(Math.random() * 80)+1;
+        const rndmPerson = Math.floor(Math.random() * r.count)+1; // в базе api 82 персонажа, 17-ый отсутствует и данные рост, вес, год рождения есть не у всех :(
         swapi.getPerson(rndmPerson).then((p) => {
     
             frontCard.innerHTML = `<img
@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
         backCard.classList.toggle('back-flipped');
     });
 });
-
+});
 
 
 

@@ -38,10 +38,12 @@ body{
 }
 
 .front{
+    -webkit-transform: perspective(600px) rotateY(0deg);
     transform: perspective(600px) rotateY(0deg);
 }
 
 .back{
+    -webkit-transform: perspective(600px) rotateY(180deg);
     transform: perspective(600px) rotateY(180deg);
     background-color: #999;
 }
@@ -57,15 +59,18 @@ h2{
 }
 
 li{
+    list-style: none;
     font-size: 20px;
     margin-bottom: 10px
 }
 
 
 .front-flipped{
+    -webkit-transform: perspective(600px) rotateY(-180deg);
     transform: perspective(600px) rotateY(-180deg);
 } 
 .back-flipped{
+    -webkit-transform: perspective(600px) rotateY(0deg);
     transform: perspective(600px) rotateY(0deg);
 } 
 
